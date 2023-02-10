@@ -97,12 +97,12 @@ class MqttToRosBridge(Bridge):
         # sepearting the values from dictionary
         list_payload = list(dict_payload.values())
         # sepearting the x,y,z values from the list
-        seperated_list = (list_payload[0],list_payload[1],list_payload[2])
+        seperated_array = (list_payload[0],list_payload[1],list_payload[2])
         # Getting msgs in the msgMqttSub file
         msg_mqtt_sub = msgMqttSub()  
         msg_mqtt_sub.timestamp = rospy.Time.now()
         msg_mqtt_sub.topic = mqtt_msg.topic
-        msg_mqtt_sub.message = seperated_list
+        msg_mqtt_sub.message = seperated_array
         # publishing the msg 
         self.ros_pub.publish(msg_mqtt_sub)
 
